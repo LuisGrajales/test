@@ -8,9 +8,8 @@ app = Flask(__name__)
 
 # Consulta la base de datos, de no tener datos se hace el scrape
 @app.route('/')
-def welcome(name):
-
-    return "Welcome!"
+def hello():
+    return "<h1 style='color:blue'>Hello There!</h1>"
 
 @app.route('/<string:name>')
 def query_by_name(name):
@@ -77,4 +76,4 @@ def testreplaceendpoint(name,newname):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
