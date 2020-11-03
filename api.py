@@ -7,6 +7,11 @@ from bson import json_util
 app = Flask(__name__)
 
 # Consulta la base de datos, de no tener datos se hace el scrape
+@app.route('/')
+def welcome(name):
+
+    return "Welcome!"
+
 @app.route('/<string:name>')
 def query_by_name(name):
 
