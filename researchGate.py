@@ -23,7 +23,8 @@ def findResearchGate(search_param):
 	chrome_options.add_argument("--headless")
 
 	#Chrome drivers
-	driver = webdriver.Chrome("../../usr/lib/chromium-browser/chromedriver", chrome_options=chrome_options)
+	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
+    	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
 
 	totalPages = None
 	currentPage = 1
