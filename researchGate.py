@@ -15,9 +15,6 @@ def findResearchGate(search_param):
 	articlesData = []
 
 	#Heroku paths
-	CHROMEDRIVER_PATH = "/app/.chromedriver/bin/chromedriver"
-	chrome_bin = os.environ.get("GOOGLE_CHROME_BIN", "chromedriver")
-	chrome_options.binary_location = chrome_bin
 	chrome_options.add_argument("--disable-gpu")
 	chrome_options.add_argument("--no-sandbox")
 	chrome_options.add_argument("--headless")
