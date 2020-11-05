@@ -24,7 +24,7 @@ def findResearchGate(search_param):
 
 	#Chrome drivers
 	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
-    	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
+	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
 
 	totalPages = None
 	currentPage = 1
