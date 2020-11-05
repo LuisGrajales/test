@@ -24,7 +24,7 @@ def findGoogle(search_param):
     chrome_options.add_argument("--headless")
 
     #Chrome drivers
-    driver = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver", chrome_options=chrome_options)
+    driver = webdriver.Chrome("../../usr/lib/chromium-browser/chromedriver", chrome_options=chrome_options)
 
     #Navegar a google academico
     driver.get('https://scholar.google.com/citations?view_op=search_authors&mauthors=&hl=en&oi=ao')
