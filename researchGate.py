@@ -107,11 +107,11 @@ def findResearchGate(search_param):
 	
 	try:
 		# XPath de las páginas
-		classpath = 'nova-c-button nova-c-button--align-center nova-c-button--radius-m nova-c-button--size-s nova-c-button--color-grey nova-c-button--theme-bare nova-c-button--width-full'
+		classpath = "nova-o-stack__item pager-container"
 		print("enc")
 		pagesButtons = WebDriverWait(driver, timeout = 900).until(lambda d : d.find_elements_by_class_name(classpath))
-
-		totalPages = int(pagesButtons[-2].text)
+		listbuttons = pagesButtons.find_elements_by_class_name("nova-c-button-group__item")
+		totalPages = int(listbuttons[-2].text)
 		print("encontre el numero de la pagina")
 
 	except:
