@@ -48,28 +48,24 @@ def findOnePage(search_param):
 			collaboratorsTextArray.append(collaborator.text)
 
 		# Manejo de escenarios, no todos los articulos tienen DOI, ISBN o ambos.
-		try:
-			date = metadata[0].text
-			if 1 < len(metadata):
-				DOI = metadata[1].text[5:] if "DOI" in metadata[1].text else "No disponible"
-				ISBN = metadata[1].text[6:] if "ISBN" in metadata[1].text else ""
-			if 2 < len(metadata):
-				ISBN = metadata[2].text[6:] if "ISBN" in metadata[2].text else "No disponible"
+		date = metadata[0].text
+		if 1 < len(metadata):
+			DOI = metadata[1].text[5:] if "DOI" in metadata[1].text else "No disponible"
+			ISBN = metadata[1].text[6:] if "ISBN" in metadata[1].text else ""
+		if 2 < len(metadata):
+			ISBN = metadata[2].text[6:] if "ISBN" in metadata[2].text else "No disponible"
 
-			# Objeto de artículo terminado
-			data = {
-					"title" : header[0].text,
-					"date" : date,
-					"DOI" : DOI,
-					"ISBN" : ISBN,
-					"collaborators" : collaboratorsTextArray
-			}
+		# Objeto de artículo terminado
+		data = {
+				"title" : header[0].text,
+				"date" : date,
+				"DOI" : DOI,
+				"ISBN" : ISBN,
+				"collaborators" : collaboratorsTextArray
+		}
 
-			# Agregamos el artículo a la lista
-			articlesData.append(data)
-		except:
-			articlesData.append('error de trycatch')
-
+		# Agregamos el artículo a la lista
+		articlesData.append(data)
 	# Terminar el proceso del navegador
 	driver.quit()
 	# print(articlesData)
