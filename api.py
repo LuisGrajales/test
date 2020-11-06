@@ -42,8 +42,8 @@ def query(name):
 def scrape(name):
 
     scrapeResults = {
-        # 'research_gate' : findResearchGate(name),
-        'google' : findGoogle(name)
+        'research_gate' : findResearchGate(name) # coma 
+        # 'google' : findGoogle(name)
     }
 
     insertedData = insertData(name, scrapeResults)
