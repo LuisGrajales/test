@@ -42,7 +42,7 @@ def query(name):
 def scrape(name):
 
     scrapeResults = {
-        'research_gate' : findResearchGate(name),
+        # 'research_gate' : findResearchGate(name),
         'google' : findGoogle(name)
     }
 
