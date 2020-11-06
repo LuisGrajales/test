@@ -166,7 +166,7 @@ def findResearchGate(search_param):
 				pass
 
 		pagesclasspath = "nova-c-button nova-c-button--align-center nova-c-button--radius-m nova-c-button--size-s nova-c-button--color-grey nova-c-button--theme-bare nova-c-button--width-full"
-		pagesButtons = WebDriverWait(driver, timeout = 120).until(lambda d : d.find_elements_by_class_name(pagepagesclasspathsxpath))
+		pagesButtons = WebDriverWait(driver, timeout = 120).until(lambda d : d.find_elements_by_class_name(pagesclasspath))
 
 		nextPageButton = pagesButtons[-1]
 		nextPageButton.click()
