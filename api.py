@@ -77,11 +77,9 @@ def query_one_page(name):
 
 
     scrapeResults = {
-        'research_gate' : findOnePage(name)
+        'research_gate' : 'hola'
     }
 
-
-    
     return scrapeResults
 
 
