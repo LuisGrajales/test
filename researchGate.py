@@ -37,7 +37,7 @@ def findResearchGate(search_param):
 		totalPages = int(pagesButtons[-2].text)
 
 	except:
-		return [{ "error" : "Sin resultados" }]
+		return [{ "error" : "timeout" }]
 
 	while currentPage <= totalPages:
 
