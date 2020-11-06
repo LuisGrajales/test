@@ -10,10 +10,10 @@ def findOnePage(search_param):
 
 
 	# Ignorar los certificados:
-	options = webdriver.ChromeOptions()
-	options.add_argument('ignore-certificate-errors')
-	options.add_argument('--ignore-ssl-errors')
-	options.headless = True
+	chrome_options = webdriver.ChromeOptions()
+	chrome_options.add_argument('ignore-certificate-errors')
+	chrome_options.add_argument('--ignore-ssl-errors')
+	chrome_options.headless = True
 
 	# Instanciando el webdriver de Chrome (Chromium)
 	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
