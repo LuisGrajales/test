@@ -98,6 +98,7 @@ def findResearchGate(search_param):
 	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
 
 	driver.get('https://www.researchgate.net/search/publication?q="{}"'.format(search_param))
+	print("entro a la pagina")
 	totalPages = None
 	currentPage = 1
 
