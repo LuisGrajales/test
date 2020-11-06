@@ -13,7 +13,9 @@ def findOnePage(search_param):
 	chrome_options = webdriver.ChromeOptions()
 	chrome_options.add_argument('ignore-certificate-errors')
 	chrome_options.add_argument('--ignore-ssl-errors')
-	chrome_options.headless = True
+	chrome_options.add_argument("--disable-gpu")
+	chrome_options.add_argument("--no-sandbox")
+	chrome_options.add_argument("--headless")
 
 	# Instanciando el webdriver de Chrome (Chromium)
 	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
