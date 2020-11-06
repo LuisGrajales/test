@@ -9,69 +9,69 @@ import os
 def findOnePage(search_param):
 
 
-	# Ignorar los certificados:
+# Ignorar los certificados:
 	options = webdriver.ChromeOptions()
 	options.add_argument('ignore-certificate-errors')
 	options.add_argument('--ignore-ssl-errors')
 	options.headless = True
 
-	# Instanciando el webdriver de Chrome (Chromium)
+# Instanciando el webdriver de Chrome (Chromium)
 	driver = Chrome(chrome_options=options)
 
-	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
+# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
 	driver.get('https://www.researchgate.net/search/publication?q="{}"'.format(search_param))
 
-	# XPath de las tarjetas de artículos
+# XPath de las tarjetas de artículos
 	containerxpath = '//div[@class="nova-o-stack__item"]'
-	# Encontrar todas las tarjetas de artículos dentro de la página usanndo XPath
+# Encontrar todas las tarjetas de artículos dentro de la página usanndo XPath
 	articles = WebDriverWait(driver, timeout = 10).until(lambda d : d.find_elements_by_xpath(containerxpath))
 
-	# Declaración de arreglo de datos a devolver
+# Declaración de arreglo de datos a devolver
 	articlesData = []
 
-	# Ciclando cada uno de los articulos de la variable 'articles'
+# Ciclando cada uno de los articulos de la variable 'articles'
 	for article in articles:
-		# Existen por la estructura de la página dos textos con la misma clase, por eso se buscan varios elementos como possibleTitles.
+# Existen por la estructura de la página dos textos con la misma clase, por eso se buscan varios elementos como possibleTitles.
 		header = article.find_elements_by_xpath('.//div[@class="nova-e-text nova-e-text--size-l nova-e-text--family-sans-serif nova-e-text--spacing-none nova-e-text--color-inherit nova-v-publication-item__title"]')
 		# List Items que contienen los metadatos: Fecha, DOI, ISBN
 		metadata = article.find_elements_by_xpath('.//li[@class="nova-e-list_item nova-v-publication-item_meta-data-item"]')
 		# Spans que contienen los nombres de cada uno de los colaboradores
 		collaborators = article.find_elements_by_xpath('.//span[@class="nova-v-person-inline-item__fullname"]')
-		
-		# Procesamiento de los webelements
-		# Declaración de arreglo de todos los colaboradores
-		collaboratorsTextArray = []
-		for collaborator in collaborators:
-			collaboratorsTextArray.append(collaborator.text)
 
-		# Manejo de escenarios, no todos los articulos tienen DOI, ISBN o ambos.
+# Procesamiento de los webelements
+# Declaración de arreglo de todos los colaboradores
+		collaboratorsTextArray = []
+	for collaborator in collaborators:
+		collaboratorsTextArray.append(collaborator.text)
+
+# Manejo de escenarios, no todos los articulos tienen DOI, ISBN o ambos.
 		try:
 			date = metadata[0].text
-			if 1 < len(metadata):
-				DOI = metadata[1].text[5:] if "DOI" in metadata[1].text else "No disponible"
-				ISBN = metadata[1].text[6:] if "ISBN" in metadata[1].text else ""
-			if 2 < len(metadata):
-				ISBN = metadata[2].text[6:] if "ISBN" in metadata[2].text else "No disponible"
+		if 1 < len(metadata):
+			DOI = metadata[1].text[5:] if "DOI" in metadata[1].text else "No disponible"
+			ISBN = metadata[1].text[6:] if "ISBN" in metadata[1].text else ""
+		if 2 < len(metadata):
+			ISBN = metadata[2].text[6:] if "ISBN" in metadata[2].text else "No disponible"
 
-			# Objeto de artículo terminado
-			data = {
-					"title" : header[0].text,
-					"date" : date,
-					"DOI" : DOI,
-					"ISBN" : ISBN,
-					"collaborators" : collaboratorsTextArray
-			}
+	# Objeto de artículo terminado
+		data = {
+			"title" : header[0].text,
+			"date" : date,
+			"DOI" : DOI,
+			"ISBN" : ISBN,
+			"collaborators" : collaboratorsTextArray
+	}
 
-			# Agregamos el artículo a la lista
-			articlesData.append(data)
-		except:
-			pass
+	# Agregamos el artículo a la lista
+		articlesData.append(data)
+	except:
+	pass
 
-	# Terminar el proceso del navegador
+# Terminar el proceso del navegador
 	driver.quit()
-	# print(articlesData)
+# print(articlesData)
 
-	# Retornamos el arreglo de objetos artículo.
+# Retornamos el arreglo de objetos artículo.
 	return articlesData
 
 
