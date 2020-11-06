@@ -71,6 +71,18 @@ def testreplaceendpoint(name,newname):
         # return "Success"
     except:
         return "Fail"
+    
+    @app.route('/onepage/<string:name>')
+    def query_one_page(name):
+
+
+    scrapeResults = {
+        'research_gate' : findOnePage(name)
+    }
+
+
+    
+    return scrapeResults
 
 
 
