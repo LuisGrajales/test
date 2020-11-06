@@ -120,20 +120,20 @@ def findResearchGate(search_param):
 	while currentPage <= totalPages:
 
 		# XPath de las tarjetas de artículos
-		containerxpath = '//div[@class="nova-o-stack__item"]'
+		containerclasspath = "nova-o-stack__item"
 		# Encontrar todas las tarjetas de artículos dentro de la página usanndo XPath
-		articles = WebDriverWait(driver, timeout = 120).until(lambda d : d.find_elements_by_xpath(containerxpath))
+		articles = WebDriverWait(driver, timeout = 120).until(lambda d : d.find_elements_by_class_name(containerclasspath))
 		print("encontre los articulos")
 
 		# Ciclando cada uno de los articulos de la variable 'articles'
 		for article in articles:
 
 			# Existen por la estructura de la página dos textos con la misma clase, por eso se buscan varios elementos como possibleTitles.
-			header = article.find_elements_by_xpath('.//div[@class="nova-e-text nova-e-text--size-l nova-e-text--family-sans-serif nova-e-text--spacing-none nova-e-text--color-inherit nova-v-publication-item__title"]')
+			header = article.find_elements_by_class_name("nova-e-text nova-e-text--size-l nova-e-text--family-sans-serif nova-e-text--spacing-none nova-e-text--color-inherit nova-v-publication-item__title")
 			# List Items que contienen los metadatos: Fecha, DOI, ISBN
-			metadata = article.find_elements_by_xpath('.//li[@class="nova-e-list__item nova-v-publication-item__meta-data-item"]')
+			metadata = article.find_elements_by_class_name("nova-e-list__item nova-v-publication-item__meta-data-item")
 			# Spans que contienen los nombres de cada uno de los colaboradores
-			collaborators = article.find_elements_by_xpath('.//span[@class="nova-v-person-inline-item__fullname"]')
+			collaborators = article.find_elements_by_class_name("nova-v-person-inline-item__fullname")
 			
 			# Procesamiento de los webelements
 			# Declaración de arreglo de todos los colaboradores
@@ -165,8 +165,8 @@ def findResearchGate(search_param):
 			except:
 				pass
 
-		pagesxpath = '//a[@class="nova-c-button nova-c-button--align-center nova-c-button--radius-m nova-c-button--size-s nova-c-button--color-grey nova-c-button--theme-bare nova-c-button--width-full"]'
-		pagesButtons = WebDriverWait(driver, timeout = 120).until(lambda d : d.find_elements_by_xpath(pagesxpath))
+		pagesclasspath = "nova-c-button nova-c-button--align-center nova-c-button--radius-m nova-c-button--size-s nova-c-button--color-grey nova-c-button--theme-bare nova-c-button--width-full"
+		pagesButtons = WebDriverWait(driver, timeout = 120).until(lambda d : d.find_elements_by_class_name(pagepagesclasspathsxpath))
 
 		nextPageButton = pagesButtons[-1]
 		nextPageButton.click()
