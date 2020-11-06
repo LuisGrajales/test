@@ -108,6 +108,7 @@ def findResearchGate(search_param):
 		pagesButtons = WebDriverWait(driver, timeout = 900).until(lambda d : d.find_elements_by_xpath(pagesxpath))
 
 		totalPages = int(pagesButtons[-2].text)
+		print("encontre el numero de la pagina")
 
 	except:
 		return [{ "error" : "timeout" }]
@@ -118,6 +119,7 @@ def findResearchGate(search_param):
 		containerxpath = '//div[@class="nova-o-stack__item"]'
 		# Encontrar todas las tarjetas de artículos dentro de la página usanndo XPath
 		articles = WebDriverWait(driver, timeout = 120).until(lambda d : d.find_elements_by_xpath(containerxpath))
+		print("encontre los articulos")
 
 		# Ciclando cada uno de los articulos de la variable 'articles'
 		for article in articles:
@@ -154,6 +156,7 @@ def findResearchGate(search_param):
 				}
 
 				# Agregamos el artículo a la lista
+				print(data)
 				articlesData.append(data)
 			except:
 				pass
