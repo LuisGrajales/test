@@ -39,7 +39,7 @@ def findGoogle(search_param):
         WebDriverWait(driver, timeout = 120).until(lambda d : d.find_elements_by_class_name("gsc_1usr"))
         print("se encontraton resultado")
     except:
-        return [{ "error" : "Sin resultados" }]
+        return [{ "error" : "timeout" }]
 
     #Entrar a los articulos 
     driver.find_element_by_class_name('gs_ai_pho').click()
