@@ -16,7 +16,8 @@ def findOnePage(search_param):
 	options.headless = True
 
 	# Instanciando el webdriver de Chrome (Chromium)
-	driver = Chrome(chrome_options=options)
+	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
+	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
 
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
 	driver.get('https://www.researchgate.net/search/publication?q="{}"'.format(search_param))
