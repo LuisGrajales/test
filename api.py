@@ -77,7 +77,7 @@ def query_one_page(name):
 
 
     scrapeResults = {
-        'research_gate' : queryDatabase(name)
+        'research_gate' : findOnePage(name)
     }
 
     return scrapeResults
