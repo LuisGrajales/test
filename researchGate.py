@@ -68,7 +68,7 @@ def findOnePage(search_param):
 			# Agregamos el artículo a la lista
 			articlesData.append(data)
 		except:
-			pass
+			articlesData.append('error de trycatch')
 
 	# Terminar el proceso del navegador
 	driver.quit()
