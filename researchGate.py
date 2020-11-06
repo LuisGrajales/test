@@ -76,10 +76,6 @@ def findOnePage(search_param):
 
 
 
-
-
-
-
 def findResearchGate(search_param):
 
 
