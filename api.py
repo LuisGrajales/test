@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from researchGate import findResearchGate
+from researchGate import findResearchGate, findOnePage
 from googleAcademic import findGoogle
 from database import queryDatabase, insertData, insertTest, replaceTest
 from bson import json_util
@@ -74,9 +74,13 @@ def testreplaceendpoint(name,newname):
     
 @app.route('/onepage/<string:name>')
 def query_one_page(name):
+
+
     scrapeResults = {
         'research_gate' : findOnePage(name)
     }
+
+
     
     return scrapeResults
 
