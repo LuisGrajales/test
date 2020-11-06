@@ -36,7 +36,7 @@ def findGoogle(search_param):
 
     #Verificar si existen resultados por 5 segundos
     try:
-        WebDriverWait(driver, timeout = 120).until(lambda d : d.find_elements_by_class_name("gsc_1usr"))
+        WebDriverWait(driver, timeout = 900).until(lambda d : d.find_elements_by_class_name("gsc_1usr"))
         print("se encontraton resultado")
     except:
         return [{ "error" : "timeout" }]
