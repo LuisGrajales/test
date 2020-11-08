@@ -230,6 +230,26 @@ def findOnePageByClass(search_param):
 	# Retornamos el arreglo de objetos artículo.
 	return "Done"
 
+def onlyHTML (search_param):
+
+
+	# Ignorar los certificados:
+	chrome_options = webdriver.ChromeOptions()
+	chrome_options.add_argument('ignore-certificate-errors')
+	chrome_options.add_argument('--ignore-ssl-errors')
+	chrome_options.add_argument("--disable-gpu")
+	chrome_options.add_argument("--no-sandbox")
+	chrome_options.add_argument("--headless")
+
+	# Instanciando el webdriver de Chrome (Chromium)
+	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
+	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
+
+	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
+	driver.get('https://www.researchgate.net/search/publication?q="{}"'.format(search_param))
+
+	site = driver.page_source
+	return site
 #########################################################
             # MAIN EXECUTION - TESTING #
 #########################################################
