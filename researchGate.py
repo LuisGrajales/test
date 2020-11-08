@@ -180,6 +180,53 @@ def findResearchGate(search_param):
 	# Retornamos el arreglo de objetos artículo.
 	return articlesData
 
+def findOnePageByClass(search_param):
+
+
+	# Ignorar los certificados:
+	options = webdriver.ChromeOptions()
+	options.add_argument('ignore-certificate-errors')
+	options.add_argument('--ignore-ssl-errors')
+	options.headless = True
+
+	# Instanciando el webdriver de Chrome (Chromium)
+	driver = Chrome(chrome_options=options)
+
+	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
+	driver.get('https://www.researchgate.net/search/publication?q="{}"'.format(search_param))
+
+	# Class de las tarjetas de artículos
+	containerclass = 'nova-o-stack__item'
+	# Encontrar todas las tarjetas de artículos dentro de la página usanndo XPath
+	articles = WebDriverWait(driver, timeout = 30).until(lambda d : d.find_elements_by_class_name(containerclass))
+	print(len(articles))
+
+	if (len(articles) == 7):
+		return "Sin resultados"
+	else:
+		pagesclass = 'nova-c-button-group__item'
+		pages = WebDriverWait(driver, timeout = 30).until(lambda d : d.find_elements_by_class_name(pagesclass))
+		totalPages = pages[-2].text
+
+		for x in range(1,int(totalPages)):
+			articles = WebDriverWait(driver, timeout = 30).until(lambda d : d.find_elements_by_class_name(containerclass))
+			pages = WebDriverWait(driver, timeout = 30).until(lambda d : d.find_elements_by_class_name(pagesclass))
+			for article in articles:
+				if (article.text == "About us"):
+					break
+
+				data = article.text.split('\n')
+				print(data)
+
+			pages[-1].click()
+
+	# Terminar el proceso del navegador
+	driver.quit()
+	# print(articlesData)
+
+	# Retornamos el arreglo de objetos artículo.
+	return "Done"
+
 #########################################################
             # MAIN EXECUTION - TESTING #
 #########################################################

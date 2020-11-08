@@ -1,8 +1,9 @@
 from flask import Flask, request, jsonify
-from researchGate import findResearchGate, findOnePage
+from researchGate import findResearchGate, findOnePage, findOnePageByClass
 from googleAcademic import findGoogle
 from database import queryDatabase, insertData, insertTest, replaceTest
 from bson import json_util
+
 
 app = Flask(__name__)
 
@@ -60,7 +61,14 @@ def testinsertendpoint(name):
     except:
         return "Fail"
 
+@app.route('/test/onepageclass/<string:name>')
+def query_one_page_class(name):
 
+    scrapeResults = {
+        'research_gate' : findOnePageByClass(name)
+    }
+
+    return scrapeResults
 
 # Testing
 @app.route('/test/replace/<string:name>/<string:newname>')
