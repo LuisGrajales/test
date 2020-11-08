@@ -184,13 +184,16 @@ def findOnePageByClass(search_param):
 
 
 	# Ignorar los certificados:
-	options = webdriver.ChromeOptions()
-	options.add_argument('ignore-certificate-errors')
-	options.add_argument('--ignore-ssl-errors')
-	options.headless = True
+	chrome_options = webdriver.ChromeOptions()
+	chrome_options.add_argument('ignore-certificate-errors')
+	chrome_options.add_argument('--ignore-ssl-errors')
+	chrome_options.add_argument("--disable-gpu")
+	chrome_options.add_argument("--no-sandbox")
+	chrome_options.add_argument("--headless")
 
 	# Instanciando el webdriver de Chrome (Chromium)
-	driver = Chrome(chrome_options=options)
+	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
+	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
 
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
 	driver.get('https://www.researchgate.net/search/publication?q="{}"'.format(search_param))
