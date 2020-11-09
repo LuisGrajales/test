@@ -20,7 +20,7 @@ def query_by_name(name):
         return queryResult
     else:
         scrapeResults = {
-            'research_gate' : findResearchGate(name),
+            # 'research_gate' : findResearchGate(name),
             'google' : findGoogle(name)
         }
 
@@ -43,8 +43,8 @@ def query(name):
 def scrape(name):
 
     scrapeResults = {
-        'research_gate' : findResearchGate(name) # coma 
-        # 'google' : findGoogle(name)
+        # 'research_gate' : findResearchGate(name) 
+        'google' : findGoogle(name)
     }
 
     insertedData = insertData(name, scrapeResults)
