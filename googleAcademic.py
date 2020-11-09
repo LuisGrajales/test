@@ -49,7 +49,8 @@ def findGoogle(search_param):
         WebDriverWait(driver, timeout = 120).until(lambda d: d.find_element_by_id('gsc_a_b')) 
         showMorebutton =  driver.find_element_by_id('gsc_bpf_more')
         #Cargar todos los articulos
-        while showMorebutton.isEnabled():
+        while showMorebutton.is_enabled():
+            print(showMorebutton.is_enabled())
             showMorebutton.click()
             time.sleep(3)
             
