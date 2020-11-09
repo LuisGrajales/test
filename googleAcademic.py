@@ -50,7 +50,7 @@ def findGoogle(search_param):
         showMorebutton =  driver.find_element_by_id('gsc_bpf_more')
         #Cargar todos los articulos
         while showMorebutton.isEnabled():
-            driver.find_element_by_id('gsc_bpf_more').click()
+            showMorebutton.click()
             time.sleep(3) #TODO Mejorar esta linea
     except:
         pass
