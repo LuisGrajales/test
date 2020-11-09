@@ -47,10 +47,11 @@ def findGoogle(search_param):
     #Esperar a que la pagina cargue por 5 segundos
     try:
         WebDriverWait(driver, timeout = 120).until(lambda d: d.find_element_by_id('gsc_a_b')) 
-
+        showMorebutton =  driver.find_element_by_id('gsc_bpf_more')
         #Cargar todos los articulos
-        driver.find_element_by_id('gsc_bpf_more').click()
-        time.sleep(3) #TODO Mejorar esta linea
+        while showMorebutton.isEnabled():
+            driver.find_element_by_id('gsc_bpf_more').click()
+            time.sleep(3) #TODO Mejorar esta linea
     except:
         pass
 
