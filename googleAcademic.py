@@ -51,6 +51,7 @@ def findGoogle(search_param):
         #Cargar todos los articulos
         while showMorebutton.isEnabled():
             showMorebutton.click()
+            time.sleep(3)
             
     except:
         pass
