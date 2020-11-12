@@ -279,10 +279,14 @@ def onlyHTML (search_param):
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
 	url = "https://academic.microsoft.com/home"
 	driver.get(url)
+	print("entro a la pagina")
 
 	search = WebDriverWait(driver, timeout = 120).until(lambda d: d.find_element_by_class_name('search-input'))
+	print("encontro el input")
 	search.send_keys('"alexandro escudero-nahon')
+	print("escribio")
 	search.send_keys(Keys.RETURN)
+	print("mando la peticion")
 
 	site = driver.page_source
 	return site
