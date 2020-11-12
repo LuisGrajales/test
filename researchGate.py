@@ -4,6 +4,7 @@ from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.support.ui import WebDriverWait #https://www.selenium.dev/documentation/en/webdriver/waits/
 from selenium.webdriver.common.by import By #https://www.selenium.dev/documentation/en/webdriver/web_element/
 import os
+from pyvirtualdisplay import Display
 
 
 def findOnePage(search_param):
@@ -234,6 +235,10 @@ def findOnePageByClass(search_param):
 
 def onlyHTML (search_param):
 	print('probando')
+
+	#display
+	display = Display(visible=0, size=(1280, 720))  
+	display.start()
 
 	# Ignorar los certificados:
 	chrome_options = webdriver.ChromeOptions()
