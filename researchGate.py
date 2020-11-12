@@ -330,7 +330,9 @@ def byPass (search_param):
 				handle.write(data)
 
 
-	driver = webdriver.Chrome(chrome_options=option, executable_path=r"chromedriver.exe")
+	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
+
+	driver = webdriver.Chrome(chrome_path ,chrome_options=option)
 	driver.get(byPassUrl)
 
 	googleClass = driver.find_elements_by_class_name('g-recaptcha')[0]
