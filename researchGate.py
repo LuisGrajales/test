@@ -251,9 +251,10 @@ def onlyHTML (search_param):
 	chrome_options.add_argument("--disable-dev-shm-usage")
 	# chrome_options.add_argument("--remote-debugging-port=5000")
 	chrome_options.add_argument("--headless")
-	chrome_options.add_argument("user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36")
-	chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-	chrome_options.add_experimental_option('useAutomationExtension', False)
+	# chrome_options.add_argument("user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36")
+	# chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+	# chrome_options.add_experimental_option('useAutomationExtension', False)
+	chrome_options.add_argument('--disable-blink-features=AutomationControlled')
 
 	
 
@@ -262,7 +263,7 @@ def onlyHTML (search_param):
 	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
 	driver.add_cookie({"name":"sid","value":"dLbaTtOwpmMW7oF5mW2aP4B5PnjyXcSVJhHNFWynYHz1oZoNPdIy14cLu5GVJ6BiipMWBdU5xEsCzqM5zS10kXB3J09o6Gp4hAk0JjQKCciac2dmfOTYwpH9F1BKFDjy"})
 
-	driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+	# driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
 	# driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.53 Safari/537.36'})
 
 
