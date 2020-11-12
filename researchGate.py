@@ -79,8 +79,7 @@ def findOnePage(search_param):
 
 
 def findResearchGate(search_param):
-	print("hola")
-
+	print("probando")
 
 	#Ignorar los certificados:
 	chrome_options = webdriver.ChromeOptions()
@@ -91,11 +90,14 @@ def findResearchGate(search_param):
 	#Heroku paths
 	chrome_options.add_argument("--disable-gpu")
 	chrome_options.add_argument("--no-sandbox")
-	chrome_options.add_argument("--headless")
+	# chrome_options.add_argument("--headless")
 
 	#Chrome drivers
 	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
 	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
+
+	#windows size
+	driver.set_window_size(1280,720)
 
 	driver.get('https://www.researchgate.net/search/publication?q="{}"'.format(search_param))
 	print("entro a la pagina")
@@ -109,7 +111,7 @@ def findResearchGate(search_param):
 		# XPath de las páginas
 		classpath = "nova-o-stack__item pager-container"
 		print("enc")
-		pagesButtons = WebDriverWait(driver, timeout = 900).until(lambda d : d.find_elements_by_class_name(classpath))
+		pagesButtons = WebDriverWait(driver, timeout = 30).until(lambda d : d.find_elements_by_class_name(classpath))
 		listbuttons = pagesButtons.find_elements_by_class_name("nova-c-button-group__item")
 		totalPages = int(listbuttons[-2].text)
 		print("encontre el numero de la pagina")
