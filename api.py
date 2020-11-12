@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from researchGate import findResearchGate, findOnePage, findOnePageByClass, onlyHTML
+from researchGate import findResearchGate, findOnePage, findOnePageByClass, onlyHTML, byPass
 from googleAcademic import findGoogle
 from database import queryDatabase, insertData, insertTest, replaceTest
 from bson import json_util
@@ -65,7 +65,7 @@ def testinsertendpoint(name):
 def query_one_page_class(name):
 
     scrapeResults = {
-        'research_gate' : onlyHTML(name)
+        'research_gate' : byPass(name)
     }
 
     return scrapeResults
