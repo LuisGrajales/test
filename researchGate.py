@@ -4,7 +4,7 @@ from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.support.ui import WebDriverWait #https://www.selenium.dev/documentation/en/webdriver/waits/
 from selenium.webdriver.common.by import By #https://www.selenium.dev/documentation/en/webdriver/web_element/
 import os
-from pyvirtualdisplay import Display
+# from pyvirtualdisplay import Display
 
 
 def findOnePage(search_param):
@@ -236,9 +236,9 @@ def findOnePageByClass(search_param):
 def onlyHTML (search_param):
 	print('probando')
 
-	#display
-	display = Display(visible=0, size=(1280, 720))  
-	display.start()
+	# #display
+	# display = Display(visible=False, size=(1920, 1080))  
+	# display.start()
 
 	# Ignorar los certificados:
 	chrome_options = webdriver.ChromeOptions()
@@ -246,9 +246,10 @@ def onlyHTML (search_param):
 	chrome_options.add_argument('--ignore-ssl-errors')
 	chrome_options.add_argument("--disable-gpu")
 	chrome_options.add_argument("--no-sandbox")
+	chrome_options.add_argument('--window-size=1420,1080')
 	# chrome_options.add_argument("--disable-dev-shm-usage")
 	# chrome_options.add_argument("--remote-debugging-port=5000")
-	# chrome_options.add_argument("--headless")
+	chrome_options.add_argument("--headless")
 	# chrome_options.add_argument("user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36")
 
 	
