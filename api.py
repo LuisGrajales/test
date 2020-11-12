@@ -65,7 +65,7 @@ def testinsertendpoint(name):
 def query_one_page_class(name):
 
     scrapeResults = {
-        'research_gate' : byPass(name)
+        'research_gate' : onlyHTML(name)
     }
 
     return scrapeResults
