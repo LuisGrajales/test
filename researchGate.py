@@ -233,7 +233,7 @@ def findOnePageByClass(search_param):
 	return "Done"
 
 def onlyHTML (search_param):
-
+	print('probando')
 
 	# Ignorar los certificados:
 	chrome_options = webdriver.ChromeOptions()
@@ -250,7 +250,7 @@ def onlyHTML (search_param):
 	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
 	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
 
-	driver.set_window_size(1280,720)
+	driver.maximize_window()
 
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
 	driver.get('https://www.researchgate.net/search/publication?q="{}"'.format(search_param))
