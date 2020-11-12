@@ -246,7 +246,7 @@ def onlyHTML (search_param):
 	chrome_options.add_argument('--ignore-ssl-errors')
 	chrome_options.add_argument("--disable-gpu")
 	chrome_options.add_argument("--no-sandbox")
-	chrome_options.add_argument('--window-size=1420,1080')
+	# chrome_options.add_argument('--window-size=1420,1080')
 	# chrome_options.add_argument("--disable-dev-shm-usage")
 	# chrome_options.add_argument("--remote-debugging-port=5000")
 	chrome_options.add_argument("--headless")
@@ -258,7 +258,7 @@ def onlyHTML (search_param):
 	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
 	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
 
-	# driver.maximize_window()
+	driver.set_window_size(1920,1080)
 
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
 	driver.get('https://www.researchgate.net/')
