@@ -251,7 +251,7 @@ def onlyHTML (search_param):
 	# Ignorar los certificados:
 	chrome_options = webdriver.ChromeOptions()
 	chrome_options.add_argument('ignore-certificate-errors')
-	chrome_options.add_argument("start-maximized")
+	# chrome_options.add_argument("start-maximized")
 	chrome_options.add_argument('--ignore-ssl-errors')
 	chrome_options.add_argument("--disable-gpu")
 	chrome_options.add_argument("--no-sandbox")
@@ -260,9 +260,9 @@ def onlyHTML (search_param):
 	# chrome_options.add_argument("--remote-debugging-port=5000")
 	chrome_options.add_argument("--headless")
 	# chrome_options.add_argument("user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36")
-	chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-	chrome_options.add_experimental_option('useAutomationExtension', False)
-	chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+	# chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+	# chrome_options.add_experimental_option('useAutomationExtension', False)
+	# chrome_options.add_argument('--disable-blink-features=AutomationControlled')
 
 	
 
