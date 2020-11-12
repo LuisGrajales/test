@@ -289,7 +289,7 @@ def byPass (search_param):
 	byPassUrl = 'https://www.google.com/recaptcha/api2/demo'
 	googleIBMLink = 'https://speech-to-text-demo.ng.bluemix.net/'
 	
-	PROXY = "172.67.182.157:80"
+	PROXY = "20.186.110.157:3128"
 	option = webdriver.ChromeOptions()
 	option.add_argument("--no-sandbox")
 	option.add_argument('lang=en')
