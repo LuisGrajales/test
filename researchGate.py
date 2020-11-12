@@ -246,9 +246,8 @@ def onlyHTML (search_param):
 	chrome_options.add_argument('--ignore-ssl-errors')
 	chrome_options.add_argument("--disable-gpu")
 	chrome_options.add_argument("--no-sandbox")
-	chrome_options.add_argument("start-maximized")
-	chrome_options.add_argument("--disable-dev-shm-usage")
-	chrome_options.add_argument("--remote-debugging-port=5000")
+	# chrome_options.add_argument("--disable-dev-shm-usage")
+	# chrome_options.add_argument("--remote-debugging-port=5000")
 	# chrome_options.add_argument("--headless")
 	# chrome_options.add_argument("user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36")
 
@@ -261,7 +260,7 @@ def onlyHTML (search_param):
 	# driver.maximize_window()
 
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
-	driver.get('https://www.researchgate.net/search/publication?q="{}"'.format(search_param))
+	driver.get('https://www.researchgate.net/')
 
 	site = driver.page_source
 	return site
