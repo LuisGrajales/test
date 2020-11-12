@@ -290,6 +290,7 @@ def byPass (search_param):
 	googleIBMLink = 'https://speech-to-text-demo.ng.bluemix.net/'
 
 	option = webdriver.ChromeOptions()
+	option.add_argument("--no-sandbox")
 	option.add_argument('lang=en')
 	option.add_argument("--disable-gpu")
 	option.add_argument("--headless")
