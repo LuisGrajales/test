@@ -280,10 +280,10 @@ def onlyHTML (search_param):
 	url = "https://academic.microsoft.com/home"
 	driver.get(url)
 
-	search = WebDriverWait(driver, timeout = 120).until(lambda d: d.find_element_by_class_name('suggestion-box'))
+	search = WebDriverWait(driver, timeout = 120).until(lambda d: d.find_element_by_class_name('search-input'))
 	search.send_keys('"alexandro escudero-nahon')
 	search.send_keys(Keys.RETURN)
-	
+
 	site = driver.page_source
 	return site
 
