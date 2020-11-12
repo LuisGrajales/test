@@ -288,7 +288,8 @@ def byPass (search_param):
 	filename = 'captcha_audio.mp3'
 	byPassUrl = 'https://www.google.com/recaptcha/api2/demo'
 	googleIBMLink = 'https://speech-to-text-demo.ng.bluemix.net/'
-
+	
+	PROXY = "172.67.182.157:80"
 	option = webdriver.ChromeOptions()
 	option.add_argument("--no-sandbox")
 	option.add_argument('lang=en')
@@ -296,6 +297,7 @@ def byPass (search_param):
 	option.add_argument("--headless")
 	option.add_argument("--mute-audio")
 	option.add_experimental_option("excludeSwitches", ["enable-logging"])
+	option.add_argument('--proxy-server=%s' % PROXY)
 	# option.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
 	option.add_argument("user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1")
 
@@ -332,6 +334,7 @@ def byPass (search_param):
 			for data in content.iter_content():
 				handle.write(data)
 
+	
 
 	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
 
