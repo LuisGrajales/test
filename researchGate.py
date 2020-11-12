@@ -277,7 +277,7 @@ def onlyHTML (search_param):
 
 
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
-	driver.get("https://academic.microsoft.com/home")
+	driver.get("https://www.researchgate.net/")
 
 	site = driver.page_source
 	return site
