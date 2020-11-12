@@ -286,7 +286,7 @@ def byPass (search_param):
 	delayTime = 2
 	audioToTextDelay = 10
 	filename = 'captcha_audio.mp3'
-	byPassUrl = 'https://www.researchgate.net/'
+	byPassUrl = 'https://www.google.com/recaptcha/api2/demo'
 	googleIBMLink = 'https://speech-to-text-demo.ng.bluemix.net/'
 
 	option = webdriver.ChromeOptions()
