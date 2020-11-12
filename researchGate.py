@@ -261,7 +261,7 @@ def onlyHTML (search_param):
 	# Instanciando el webdriver de Chrome (Chromium)
 	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
 	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
-	driver.add_cookie({"name":"sid","value":"dLbaTtOwpmMW7oF5mW2aP4B5PnjyXcSVJhHNFWynYHz1oZoNPdIy14cLu5GVJ6BiipMWBdU5xEsCzqM5zS10kXB3J09o6Gp4hAk0JjQKCciac2dmfOTYwpH9F1BKFDjy"})
+	# driver.add_cookie({"name":"sid","value":"dLbaTtOwpmMW7oF5mW2aP4B5PnjyXcSVJhHNFWynYHz1oZoNPdIy14cLu5GVJ6BiipMWBdU5xEsCzqM5zS10kXB3J09o6Gp4hAk0JjQKCciac2dmfOTYwpH9F1BKFDjy"})
 
 	# driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
 	# driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.53 Safari/537.36'})
