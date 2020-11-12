@@ -281,13 +281,10 @@ def onlyHTML (search_param):
 	driver.get(url)
 	print("entro a la pagina")
 
-	main = WebDriverWait(driver, timeout = 120).until(lambda d: d.find_element_by_class_name('main'))
-	print("encontro el main")
-	search = main.find_element_by_class_name("suggestion-box")
-	print("encontro suggestion box")
-	search = search.find_elements_by_id("search-input")
+	search = WebDriverWait(driver, timeout = 120).until(lambda d: d.find_element_by_id('search-input'))
 	print("encotro input")
-	search.send_keys('"alexandro escudero-nahon')
+	param = "alexandro escudero-nahon"
+	search.send_keys(param)
 	print("escribio")
 	search.send_keys(Keys.RETURN)
 	print("mando la peticion")
