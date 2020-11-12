@@ -243,6 +243,7 @@ def onlyHTML (search_param):
 	# Ignorar los certificados:
 	chrome_options = webdriver.ChromeOptions()
 	chrome_options.add_argument('ignore-certificate-errors')
+	chrome_options.add_argument("start-maximized")
 	chrome_options.add_argument('--ignore-ssl-errors')
 	chrome_options.add_argument("--disable-gpu")
 	chrome_options.add_argument("--no-sandbox")
@@ -251,6 +252,8 @@ def onlyHTML (search_param):
 	# chrome_options.add_argument("--remote-debugging-port=5000")
 	chrome_options.add_argument("--headless")
 	# chrome_options.add_argument("user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36")
+	chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+	chrome_options.add_experimental_option('useAutomationExtension', False)
 
 	
 
@@ -258,7 +261,9 @@ def onlyHTML (search_param):
 	chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
 	driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
 
-	driver.set_window_size(1920,1080)
+	driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+	driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.53 Safari/537.36'})
+
 
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
 	driver.get('https://www.researchgate.net/')
