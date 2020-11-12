@@ -277,7 +277,7 @@ def onlyHTML (search_param):
 
 
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
-	driver.get("https://academic.microsoft.com/home")
+	driver.get("https://academic.microsoft.com/author/2241863331/publication/search?q=Alexandro%20Escudero%20Nah%C3%B3n&qe=Composite(AA.AuId%3D2241863331)&f=&orderBy=0&skip=10&take=10")
 
 	site = driver.page_source
 	return site
