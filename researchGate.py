@@ -291,6 +291,8 @@ def byPass (search_param):
 
 	option = webdriver.ChromeOptions()
 	option.add_argument('lang=en')
+	option.add_argument("--disable-gpu")
+	option.add_argument("--headless")
 	option.add_argument("--mute-audio")
 	option.add_experimental_option("excludeSwitches", ["enable-logging"])
 	# option.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
