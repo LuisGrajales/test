@@ -50,7 +50,7 @@ def findMicrosoft (search_param):
     driver.get(url)
     print("entro a la pagina")
     title = driver.title
-
+    print(title)
     time.sleep(3)
     search = driver.find_element_by_class_name("disambiguations")
     print(search)
@@ -60,6 +60,8 @@ def findMicrosoft (search_param):
     print(search)
     search.click()
     print("success")
+    title = driver.title
+    print(title)
 
 
 
