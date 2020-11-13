@@ -50,10 +50,11 @@ def findMicrosoft (search_param):
     print("entro a la pagina")
     title = driver.title
 
-    autor = driver.find_elements_by_class_name("name-section")
+    autors = driver.find_elements_by_class_name("name-section")
     print("encontro autor")
-    autor[0].find_element_by_class_name("entity-card-filter icon-search au-target")
-    autor[0].find_element_by_class_name("au-target").click()
+    autor = autors[0]
+    autor.find_element_by_class_name("entity-card-filter icon-search au-target")
+    autor.find_element_by_class_name("au-target").click()
     print("hizo click")
 
 
