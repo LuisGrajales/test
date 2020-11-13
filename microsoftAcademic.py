@@ -61,7 +61,7 @@ def findMicrosoft (search_param):
     search.click()
     print("success")
 
-    window_after = driver.window_handles[1]
+    window_after = driver.window_handles[0]
     driver.switch_to.window(window_after)
     time.sleep(1)
     name = driver.find_element_by_class_name("caption").text
