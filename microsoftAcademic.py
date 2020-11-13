@@ -45,7 +45,7 @@ def findMicrosoft (search_param):
 
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
     # url = 'https://academic.microsoft.com/search?q="{}"'.format(search_param)
-    ur=l "file:///C:/Users/luisl/Desktop/alexandro%20escudero%20nahon%20-%20Search%20Results%20_%20Microsoft%20Academic.html"
+    url= "file:///C:/Users/luisl/Desktop/alexandro%20escudero%20nahon%20-%20Search%20Results%20_%20Microsoft%20Academic.html"
     driver.get(url)
     print("entro a la pagina")
     title = driver.title
