@@ -53,8 +53,11 @@ def findMicrosoft (search_param):
 
     time.sleep(3)
     search = driver.find_element_by_class_name("disambiguations")
+    print(search)
     search = driver.find_element_by_class_name("header")
+    print(search)
     search = driver.find_element_by_class_name("entity-card-filter icon-search au-target").click()
+    print(search)
     print("success")
 
 
