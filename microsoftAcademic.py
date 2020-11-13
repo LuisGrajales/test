@@ -51,7 +51,7 @@ def findMicrosoft (search_param):
 
     autor = driver.find_elements_by_class_name("author-card")
     print("encontro autor")
-    autor[0] = driver.find_elements_by_xpath("//span[@class='au-target']").text()
+    autor[0] = driver.find_element_by_xpath("//span[@class='au-target']").text()
 
 
     return autor
