@@ -50,7 +50,7 @@ def findMicrosoft (search_param):
     print("entro a la pagina")
     title = driver.title
 
-    autors = driver.find_elements_by_class_name("entity-card-filter icon-search au-target")
+    autors = driver.find_element_by_class_name("entity-card-filter icon-search au-target")
     print("encontro autor")
     print(autors)
     autors.click()
