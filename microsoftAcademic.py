@@ -53,10 +53,10 @@ def findMicrosoft (search_param):
 
     time.sleep(3)
     search = driver.find_element_by_class_name("disambiguations")
-    name = search.find_element_by_xpath('//span[@class="au-target"]').text
+    name = search.find_element_by_xpath('//span[@class="au-target"]')
     print("encontro autor")
     print(search)
     print(name)
 
 
-    return name
+    return title
