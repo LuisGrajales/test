@@ -56,8 +56,9 @@ def findMicrosoft (search_param):
     print(search)
     search = driver.find_element_by_class_name("header")
     print(search)
-    search = driver.find_element_by_class_name("entity-card-filter icon-search au-target").click()
+    search = driver.find_element_by_class_name("name")
     print(search)
+    search.click()
     print("success")
 
 
