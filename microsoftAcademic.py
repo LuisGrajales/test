@@ -50,7 +50,7 @@ def findMicrosoft (search_param):
     print("entro a la pagina")
     title = driver.title
 
-    autors = driver.find_elements_by_class_name("name-section")
+    autors = driver.find_elements_by_class_name("name")
     print("encontro autor")
     print(autors)
     autor = autors[0]
