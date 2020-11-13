@@ -52,7 +52,7 @@ def findMicrosoft (search_param):
 
     autors = driver.find_elements_by_class_name("name-section")
     print("encontro autor")
-    print(autors[0])
+    print(autors)
     autor = autors[0]
     autor.find_element_by_class_name("entity-card-filter icon-search au-target")
     autor.find_element_by_class_name("au-target").click()
