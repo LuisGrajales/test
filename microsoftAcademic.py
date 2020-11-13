@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By #https://www.selenium.dev/documentat
 from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+import time
 
 
 def findMicrosoft (search_param):
@@ -50,6 +51,7 @@ def findMicrosoft (search_param):
     print("entro a la pagina")
     title = driver.title
 
+    time.sleep(3)
     search = driver.find_element_by_class_name("disambiguations")
     print("encontro autor")
     print(search)
