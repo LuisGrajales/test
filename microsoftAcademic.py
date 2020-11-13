@@ -50,7 +50,7 @@ def findMicrosoft (search_param):
     print("entro a la pagina")
     title = driver.title
 
-    search = driver.find_element(By.XPATH, '//i[@class="entity-card-filter icon-search au-target"]')
+    search = driver.find_element(By.XPATH, '//div[@class="disambiguations"]')
     print("encontro autor")
     print(search)
 
