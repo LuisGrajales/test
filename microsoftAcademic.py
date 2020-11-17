@@ -54,11 +54,10 @@ def findMicrosoft (search_param):
     #busca el primer nombre de la lista y hace click en su perfil
     time.sleep(3)
     search = driver.find_element_by_class_name("disambiguations")
-    print(search)
+    search = driver.find_element_by_class_name("ma-card")
     search = driver.find_element_by_class_name("header")
-    print(search)
     search = driver.find_element_by_class_name("name")
-    print(search)
+    search = driver.find_element_by_xpath("//a[@role='link']")
     search.click()
     print("success")
 
