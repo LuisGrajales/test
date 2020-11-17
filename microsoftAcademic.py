@@ -66,18 +66,17 @@ def findMicrosoft (search_param):
     window_after = driver.window_handles[0]
     driver.switch_to.window(window_after)
     time.sleep(1)
-    print(driver.page_source)
-    main = driver.find_element_by_class_name("main")
-    titlePage = main.find_element_by_xpath("//h1[@class='title au-target']")
-    print(titlePage.text)
-    results = main.find_element_by_class_name("results")
-    results = results.find_element_by_class_name("ma-paper-results")
+    # main = driver.find_element_by_class_name("main")
+    # titlePage = main.find_element_by_xpath("//h1[@class='title au-target']")
+    # print(titlePage.text)
+    # results = main.find_element_by_class_name("results")
+    # results = results.find_element_by_class_name("ma-paper-results")
 
-    articles = results.find_elements_by_xpath("//ma-card[@class='au-target']")
-    for article in articles:
-        paper = article.find_element_by_class_name("primary_paper")
-        paperTitle = paper.find_element_by_xpath("//a[@class='title au-target']")
-        test = paperTitle.get_attribute("data-appinsights-title")
-        print(str(test))
+    # articles = results.find_elements_by_xpath("//ma-card[@class='au-target']")
+    # for article in articles:
+    #     paper = article.find_element_by_class_name("primary_paper")
+    #     paperTitle = paper.find_element_by_xpath("//a[@class='title au-target']")
+    #     test = paperTitle.get_attribute("data-appinsights-title")
+    #     print(str(test))
 
-    return title    
+    return driver.page_source    
