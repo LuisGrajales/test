@@ -67,7 +67,10 @@ def findMicrosoft (search_param):
     window_after = driver.window_handles[0]
     driver.switch_to.window(window_after)
     time.sleep(1)
-    results = driver.find_element_by_class_name("results")
+    main = driver.find_element_by_class_name("main")
+    results = main.find_element_by_class_name("results")
+    results = results.find_element_by_class_name("ma-paper-results")
+    
     articles = results.find_elements_by_xpath("//compose[@class='au-target']")
     print("got it", articles)
 
