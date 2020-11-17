@@ -70,7 +70,6 @@ def findGoogle(search_param):
         year = article.find_element_by_class_name('gsc_a_y').text
         
         #manejo de expecion si no existe fecha
-        #TODO
 
         #Objeto de articulos
         data = {
