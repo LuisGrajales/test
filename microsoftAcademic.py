@@ -70,8 +70,8 @@ def findMicrosoft (search_param):
     main = driver.find_element_by_class_name("main")
     results = main.find_element_by_class_name("results")
     results = results.find_element_by_class_name("ma-paper-results")
-    
-    articles = results.find_elements_by_xpath("//compose[@class='au-target']")
+
+    articles = results.find_elements_by_xpath("//ma-card[@class='au-target']")
     print("got it", articles)
 
     return title
