@@ -48,24 +48,22 @@ def findMicrosoft (search_param):
     url = 'https://academic.microsoft.com/search?q="{}"'.format(search_param)
     driver.get(url)
     print("entro a la pagina")
-    title = driver.title
-    print(title)
-
-    #busca el primer nombre de la lista y hace click en su perfil
-    time.sleep(3)
-    search = driver.find_element_by_class_name("disambiguations")
-    search = driver.find_element_by_class_name("ma-card")
-    search = driver.find_element_by_class_name("header")
-    search = driver.find_element_by_class_name("name")
-    search = driver.find_element_by_xpath("//a[@role='link']")
-    search.click()
-    print("success")
-
+    return driver.page_source
+    # #busca el primer nombre de la lista y hace click en su perfil
+    # time.sleep(3)
+    # search = driver.find_element_by_class_name("disambiguations")
+    # search = driver.find_element_by_class_name("ma-card")
+    # search = driver.find_element_by_class_name("header")
+    # search = driver.find_element_by_class_name("name")
+    # search = driver.find_element_by_xpath("//a[@role='link']")
+    # search.click()
+    # print("success")
+    
 
     #entra al perfil y empieza a buscar los datos a extraer
-    window_after = driver.window_handles[0]
-    driver.switch_to.window(window_after)
-    time.sleep(1)
+    # window_after = driver.window_handles[0]
+    # driver.switch_to.window(window_after)
+    # time.sleep(1)
     # main = driver.find_element_by_class_name("main")
     # titlePage = main.find_element_by_xpath("//h1[@class='title au-target']")
     # print(titlePage.text)
@@ -79,4 +77,4 @@ def findMicrosoft (search_param):
     #     test = paperTitle.get_attribute("data-appinsights-title")
     #     print(str(test))
 
-    return driver.page_source    
+ 
