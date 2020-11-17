@@ -40,17 +40,19 @@ def findMicrosoft (search_param):
 	
 
 	# Instanciando el webdriver de Chrome (Chromium)
-    chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
-    driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
+    # chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
+    # driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
+    driver = webdriver.Chrome(chrome_options=chrome_options)
 
 
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
     url = 'https://academic.microsoft.com/search?q="{}"'.format(search_param)
-    # url= "file:///C:/Users/luisl/Desktop/alexandro%20escudero%20nahon%20-%20Search%20Results%20_%20Microsoft%20Academic.html"
     driver.get(url)
     print("entro a la pagina")
     title = driver.title
     print(title)
+
+    #busca el primer nombre de la lista y hace click en su perfil
     time.sleep(3)
     search = driver.find_element_by_class_name("disambiguations")
     print(search)
@@ -61,12 +63,13 @@ def findMicrosoft (search_param):
     search.click()
     print("success")
 
+
+    #entra al perfil y empieza a buscar los datos a extraer
     window_after = driver.window_handles[0]
     driver.switch_to.window(window_after)
     time.sleep(1)
-    name = driver.find_element_by_class_name("caption").text
-    print(name)
-
-
+    results = driver.find_element_by_class_name("results")
+    articles = results.find_elements_by_xpath("//compose[@class='au-target']")
+    print("got it", articles)
 
     return title
