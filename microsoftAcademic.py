@@ -64,6 +64,7 @@ def findMicrosoft (search_param):
     # window_after = driver.window_handles[0]
     # driver.switch_to.window(window_after)
     # time.sleep(1)
+    print(driver.title)
     return driver.page_source
     # main = driver.find_element_by_class_name("main")
     # titlePage = main.find_element_by_xpath("//h1[@class='title au-target']")
