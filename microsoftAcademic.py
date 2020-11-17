@@ -56,7 +56,7 @@ def findMicrosoft (search_param):
     search = search.find_element_by_class_name("header")
     search = search.find_element_by_xpath("//div[@class='name']/a").get_attribute('href')
     print(search)
-
+    driver.get(search)
     print("success")
 
 
