@@ -57,12 +57,13 @@ def findMicrosoft (search_param):
     search = driver.find_element_by_class_name("name")
     search.click()
     print("success")
-    return driver.page_source
 
-    #entra al perfil y empieza a buscar los datos a extraer
-    # window_after = driver.window_handles[0]
-    # driver.switch_to.window(window_after)
-    # time.sleep(1)
+
+    # entra al perfil y empieza a buscar los datos a extraer
+    window_after = driver.window_handles[0]
+    driver.switch_to.window(window_after)
+    time.sleep(1)
+    return driver.page_source
     # main = driver.find_element_by_class_name("main")
     # titlePage = main.find_element_by_xpath("//h1[@class='title au-target']")
     # print(titlePage.text)
