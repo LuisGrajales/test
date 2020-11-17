@@ -40,9 +40,8 @@ def findMicrosoft (search_param):
 	
 
 	# Instanciando el webdriver de Chrome (Chromium)
-    # chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
-    # driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
-    driver = webdriver.Chrome(chrome_options=chrome_options)
+    chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
+    driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
 
 
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
