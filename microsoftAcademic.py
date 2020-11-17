@@ -72,11 +72,11 @@ def findMicrosoft (search_param):
     results = results.find_element_by_class_name("ma-paper-results")
 
     articles = results.find_elements_by_xpath("//ma-card[@class='au-target']")
-    # for article in articles:
-    paper = articles.find_element_by_class_name("paper")
-    paperTitle = paper.find_element_by_xpath("//a[@class='title au-target']")
-    test = paperTitle.get_attribute("data-appinsights-title")
-    print (test)
-    print(str(test))
+    for article in articles:
+        paper = article.find_element_by_class_name("paper")
+        paperTitle = paper.find_element_by_xpath("//a[@class='title au-target']")
+        test = paperTitle.get_attribute("data-appinsights-title")
+        print (test)
+        print(str(test))
 
-    return title
+    return title    
