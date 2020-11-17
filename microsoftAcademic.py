@@ -48,6 +48,7 @@ def findMicrosoft (search_param):
     url = 'https://academic.microsoft.com/search?q="{}"'.format(search_param)
     driver.get(url)
     print("entro a la pagina")
+    print(driver.title)
     
     #busca el primer nombre de la lista y hace click en su perfil
     time.sleep(3)
