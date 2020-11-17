@@ -54,7 +54,7 @@ def findMicrosoft (search_param):
     search = driver.find_element_by_class_name("disambiguations")
     search = search.find_element_by_class_name("author-card")
     search = search.find_element_by_class_name("header")
-    search = search.find_element_by_xpath("//div[@class='name']/a".get_attribute('href'))
+    search = search.find_element_by_xpath("//div[@class='name']/a").get_attribute('href')
     print(search)
 
     print("success")
