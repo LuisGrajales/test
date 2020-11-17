@@ -76,7 +76,7 @@ def findMicrosoft (search_param):
         paper = article.find_element_by_class_name("paper")
         paperTitle = paper.find_element_by_xpath("//a[@class='title au-target']")
         test = paperTitle.get_attribute("data-appinsights-title")
-        print (test)
-        print(str(test))
+        print ("esto es test ",test)
+        print("esto es str test ", str(test))
 
     return title    
