@@ -71,18 +71,8 @@ def findMicrosoft (search_param):
 
     articles = results.find_elements_by_xpath("//div[@class='ma-card']")
 
-    paper = articles[0].find_element_by_class_name("primary_paper")
-    paperTitle = paper.find_element_by_xpath("//a[@class='title au-target']")
-    print(paperTitle.get_attribute("data-appinsights-title"))
-
-    paper = articles[1].find_element_by_class_name("primary_paper")
-    paperTitle = paper.find_element_by_xpath("//a[@class='title au-target']")
-    print(paperTitle.get_attribute("data-appinsights-title"))
-
-    # for article in articles:
-    #     paper = article.find_element_by_class_name("primary_paper")
-    #     paperTitle = paper.find_element_by_xpath("//a[@class='title au-target']")
-    #     test = paperTitle.get_attribute("data-appinsights-title")
-    #     print(str(test))
+    for article in articles:
+        paper = article.find_element_by_xpath("//div[@class='primary_paper']/a").get_attribute("data-appinsights-title")
+        print(paper)
     return driver.page_source
  
