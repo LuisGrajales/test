@@ -65,6 +65,7 @@ def findMicrosoft (search_param):
     articles = results.find_elements_by_xpath("//div[@class='ma-card']")
 
     pageNumber = driver.find_element_by_class_name("ma-pager").text[-1]
+    pageNumber = int(pageNumber)
     counter = 0
 
     while counter < pageNumber:
