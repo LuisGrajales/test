@@ -64,10 +64,26 @@ def findMicrosoft (search_param):
 
     articles = results.find_elements_by_xpath("//div[@class='ma-card']")
 
-    for article in articles:
-        paper = article.find_element_by_xpath("//div[@class='primary_paper']")
-        paper = paper.find_element_by_xpath("//a[@class='title au-target']")
-        title = paper.find_element_by_xpath("//span[@innerhtml.bind='model.displayName']").text
-        print(title)
+    paper = articles[0].find_element_by_xpath("//div[@class='primary_paper']")
+    paper = paper.find_element_by_xpath("//a[@class='title au-target']")
+    title = paper.find_element_by_xpath("//span[@innerhtml.bind='model.displayName']").text
+    print(title)
+
+    paper = articles[1].find_element_by_xpath("//div[@class='primary_paper']")
+    paper = paper.find_element_by_xpath("//a[@class='title au-target']")
+    title = paper.find_element_by_xpath("//span[@innerhtml.bind='model.displayName']").text
+    print(title)
+
+
+    paper = articles[10].find_element_by_xpath("//div[@class='primary_paper']")
+    paper = paper.find_element_by_xpath("//a[@class='title au-target']")
+    title = paper.find_element_by_xpath("//span[@innerhtml.bind='model.displayName']").text
+    print(title)
+
+    # for article in articles:
+    #     paper = article.find_element_by_xpath("//div[@class='primary_paper']")
+    #     paper = paper.find_element_by_xpath("//a[@class='title au-target']")
+    #     title = paper.find_element_by_xpath("//span[@innerhtml.bind='model.displayName']").text
+    #     print(title)
     return driver.page_source
  
