@@ -65,16 +65,24 @@ def findMicrosoft (search_param):
 
     #dentro del perfil consigue la informacion
     main = driver.find_element_by_class_name("main")
-    titlePage = main.find_element_by_xpath("//h1[@class='title au-target']")
-    print(titlePage.text)
     results = main.find_element_by_class_name("results")
     results = results.find_element_by_class_name("ma-paper-results")
+    results = results.find_element_by_class_name("results")
 
-    articles = results.find_elements_by_xpath("//ma-card[@class='au-target']")
-    for article in articles:
-        paper = article.find_element_by_class_name("primary_paper")
-        paperTitle = paper.find_element_by_xpath("//a[@class='title au-target']")
-        test = paperTitle.get_attribute("data-appinsights-title")
-        print(str(test))
+    articles = results.find_elements_by_xpath("//ma-card[@selected-view-key.two-way='selectedViewKey']")
+    paper = articles[0].find_element_by_class_name("primary_paper")
+    paperTitle = paper.find_element_by_xpath("//a[@class='title au-target']")
+    print(paperTitle.get_attribute("data-appinsights-title"))
+
+    articles = results.find_elements_by_xpath("//ma-card[@selected-view-key.two-way='selectedViewKey']")
+    paper = articles[1].find_element_by_class_name("primary_paper")
+    paperTitle = paper.find_element_by_xpath("//a[@class='title au-target']")
+    print(paperTitle.get_attribute("data-appinsights-title"))
+
+    # for article in articles:
+    #     paper = article.find_element_by_class_name("primary_paper")
+    #     paperTitle = paper.find_element_by_xpath("//a[@class='title au-target']")
+    #     test = paperTitle.get_attribute("data-appinsights-title")
+    #     print(str(test))
     return driver.page_source
  
