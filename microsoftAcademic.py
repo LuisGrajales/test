@@ -65,12 +65,20 @@ def findMicrosoft (search_param):
     articles = results.find_elements_by_xpath("//div[@class='ma-card']")
 
     pageNumber = driver.find_element_by_class_name("ma-pager").text[-1]
-    print(pageNumber)
+    counter = 0
 
-    for article in articles:
-        paper = article.find_element_by_xpath("//div[@class='primary_paper']")
-        paper = paper.find_element_by_xpath("//a[@class='title au-target']")
-        title = paper.find_element_by_xpath("//span[@innerhtml.bind='model.displayName']").text
-        print(title)
+    while counter < pageNumber:
+        print(counter)
+
+        for article in articles:
+            paper = article.find_element_by_xpath("//div[@class='primary_paper']")
+            paper = paper.find_element_by_xpath("//a[@class='title au-target']")
+            title = paper.find_element_by_xpath("//span[@innerhtml.bind='model.displayName']").text
+            print(title)
+
+        counter = counter + 1
+        driver.find_element_by_xpath("//i@class='icon-up right au-target'").click()
+        time.sleep(2)
+        print(driver.title)
 
     return driver.page_source
