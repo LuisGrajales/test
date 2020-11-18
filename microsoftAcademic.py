@@ -80,10 +80,8 @@ def findMicrosoft (search_param):
     title = paper.find_element_by_xpath("//span[@innerhtml.bind='model.displayName']").text
     print(title)
 
-    # for article in articles:
-    #     paper = article.find_element_by_xpath("//div[@class='primary_paper']")
-    #     paper = paper.find_element_by_xpath("//a[@class='title au-target']")
-    #     title = paper.find_element_by_xpath("//span[@innerhtml.bind='model.displayName']").text
-    #     print(title)
+
+    for article in articles:
+        print(article.text)
     return driver.page_source
  
