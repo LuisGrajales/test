@@ -78,7 +78,7 @@ def findMicrosoft (search_param):
             print(title)
 
         counter = counter + 1
-        driver.find_element_by_xpath("//[i@class='icon-up right au-target']").click()
+        driver.find_element_by_xpath("//i[@class='icon-up right au-target']").click()
         time.sleep(2)
         print(driver.title)
 
