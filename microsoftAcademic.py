@@ -55,14 +55,6 @@ def findMicrosoft (search_param):
     driver.get(search)
     time.sleep(2)
     print("entro al perfil")
-    
-    #dentro del perfil consigue la informacion
-    main = driver.find_element_by_class_name("main")
-    results = main.find_element_by_class_name("results")
-    results = results.find_element_by_class_name("ma-paper-results")
-    results = results.find_element_by_class_name("results")
-
-    articles = results.find_elements_by_xpath("//div[@class='ma-card']")
 
     pageNumber = driver.find_element_by_class_name("ma-pager").text[-1]
     pageNumber = int(pageNumber)
@@ -70,6 +62,14 @@ def findMicrosoft (search_param):
 
     while counter < pageNumber:
         print(counter)
+
+        #dentro del perfil consigue la informacion
+        main = driver.find_element_by_class_name("main")
+        results = main.find_element_by_class_name("results")
+        results = results.find_element_by_class_name("ma-paper-results")
+        results = results.find_element_by_class_name("results")
+
+        articles = results.find_elements_by_xpath("//div[@class='ma-card']")
 
         for article in articles:
             paper = article.find_element_by_xpath("//div[@class='primary_paper']")
