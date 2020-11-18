@@ -65,6 +65,6 @@ def findMicrosoft (search_param):
     articles = results.find_elements_by_xpath("//div[@class='ma-card']")
 
     for article in articles:
-        test += article.text
+        test = test + article.text
     return test
  
