@@ -64,6 +64,9 @@ def findMicrosoft (search_param):
 
     articles = results.find_elements_by_xpath("//div[@class='ma-card']")
 
+    pageNumber = driver.find_element_by_class_name("ma-pager")
+    print(pageNumber.text)
+
     for article in articles:
         paper = article.find_element_by_xpath("//div[@class='primary_paper']")
         paper = paper.find_element_by_xpath("//a[@class='title au-target']")
