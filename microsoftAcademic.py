@@ -36,19 +36,14 @@ def findMicrosoft (search_param):
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36")
 
-
-	
-
 	# Instanciando el webdriver de Chrome (Chromium)
     chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
     driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
-
 
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
     url = 'https://academic.microsoft.com/search?q="{}"'.format(search_param)
     driver.get(url)
     print("entro a la pagina")
-    print(driver.title)
     
     #busca el primer nombre de la lista y hace click en su perfil
     time.sleep(3)
@@ -59,10 +54,8 @@ def findMicrosoft (search_param):
     print(search)
     driver.get(search)
     time.sleep(1)
-    print("success")
-    print(driver.title)
+    print("entro al perfil")
     
-
     #dentro del perfil consigue la informacion
     main = driver.find_element_by_class_name("main")
     results = main.find_element_by_class_name("results")
@@ -72,7 +65,8 @@ def findMicrosoft (search_param):
     articles = results.find_elements_by_xpath("//div[@class='ma-card']")
 
     for article in articles:
-        paper = article.find_element_by_xpath("//div[@class='primary_paper']/a").get_attribute("data-appinsights-title")
-        print(paper)
+        paper = article.find_element_by_xpath("//div[@class='primary_paper']")
+        title = paper.find_element_by_xpath("//span[@class='au-target']").text
+        print(title)
     return driver.page_source
  
