@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from microsoftAcademic import findMicrosoft
+from microsoftAcademic import findMicrosoft, scrapeMicrosoft
 from googleAcademic import findGoogle
 from database import queryDatabase, insertData, insertTest, replaceTest
 from bson import json_util
@@ -85,7 +85,7 @@ def query_one_page(name):
 
 
     scrapeResults = {
-        'research_gate' : findMicrosoft(name)
+        'research_gate' : scrapeMicrosoft(name)
     }
 
     return scrapeResults
