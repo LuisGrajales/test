@@ -81,6 +81,7 @@ def findMicrosoft (search_param):
             print("buscando sig pagina")
             button = driver.find_element_by_xpath("//i[@class='icon-up right au-target']")
             button.click()
+            time.sleep(1)
             print("encontro sig pagina")
         except:
             return articlesData
