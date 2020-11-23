@@ -76,8 +76,12 @@ def findMicrosoft (search_param):
 
             # Agregamos el artículo a la lista
             articlesData.append(data)
+            print("agrego los items a la lista")
         try:
-            driver.find_element_by_xpath("//i[@class='icon-up right au-target']").click()
+            print("buscando sig pagina")
+            button = driver.find_element_by_xpath("//i[@class='icon-up right au-target']")
+            button.click()
+            print("encontro sig pagina")
         except:
             return articlesData
 
