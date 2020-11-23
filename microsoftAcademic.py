@@ -22,6 +22,8 @@ def findMicrosoft (search_param):
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36")
 
+    articlesData = []
+
 	# Instanciando el webdriver de Chrome (Chromium)
     chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
     driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
@@ -30,6 +32,10 @@ def findMicrosoft (search_param):
     url = 'https://academic.microsoft.com/search?q="{}"'.format(search_param)
     driver.get(url)
     print("entro a la pagina")
+    try:
+        button = driver.find_element_by_class_name("right")
+    except:
+        return "Sin resultados"
     
     #busca el primer nombre de la lista y hace click en su perfil
     time.sleep(3)
@@ -50,18 +56,32 @@ def findMicrosoft (search_param):
         print(counter)
 
         #dentro del perfil consigue la informacion
-        main = driver.find_element_by_class_name("main")
-        results = main.find_element_by_class_name("results")
-        results = results.find_element_by_class_name("ma-paper-results")
-        results = results.find_element_by_class_name("results")
+        # main = driver.find_element_by_class_name("main")
+        # results = main.find_element_by_class_name("results")
+        # results = results.find_element_by_class_name("ma-paper-results")
+        # results = results.find_element_by_class_name("results")
 
-        articles = results.find_elements_by_xpath("//div[@class='ma-card']")
+        # articles = results.find_elements_by_xpath("//div[@class='ma-card']")
+        articles = driver.find_elements_by_class_name("primary_paper")
 
         for article in articles:
-            paper = article.find_element_by_xpath("//div[@class='primary_paper']")
-            paper = paper.find_element_by_xpath("//a[@class='title au-target']")
-            title = paper.find_element_by_xpath("//span[@innerhtml.bind='model.displayName']").text
-            print(title)
+            title = article.find_element_by_class_name("au-target").text
+            date =  article.find_element_by_class_name("year").get_attribute('textContent')
+            authors_div = article.find_elements_by_class_name("author")
+            authors = []
+            for author in authors_div:
+                authors.append(author.get_attribute('innerText'))
+
+            data = {
+                "title" : title,
+                "date" : date,
+                # "DOI" : DOI,
+                # "ISBN" : ISBN,
+                "collaborators" : authors
+            }
+
+            # Agregamos el artículo a la lista
+            articlesData.append(data)
 
         counter = counter + 1
         if counter < pageNumber:
@@ -85,7 +105,6 @@ def scrapeMicrosoft(search_param):
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36")
 
-	# Instanciando el webdriver de Chrome (Chromium)
     chrome_path = os.path.abspath("../../usr/lib/chromium-browser/chromedriver")
     driver = webdriver.Chrome(chrome_path, chrome_options=chrome_options)
 
@@ -122,7 +141,8 @@ def scrapeMicrosoft(search_param):
 
         try:
             button = driver.find_element_by_class_name("right")
+            button.click()  
         except:
             return articlesData
 
-        button.click()   
+ 
