@@ -33,7 +33,7 @@ def findMicrosoft (search_param):
     driver.get(url)
     print("entro a la pagina")
     try:
-        button = driver.find_element_by_class_name("right")
+        driver.find_element_by_class_name("right")
     except:
         return "Sin resultados"
     
@@ -77,7 +77,7 @@ def findMicrosoft (search_param):
             # Agregamos el artículo a la lista
             articlesData.append(data)
         try:
-            button = driver.find_element_by_xpath("//i[@class='icon-up right au-target']").click()
+            driver.find_element_by_xpath("//i[@class='icon-up right au-target']").click()
         except:
             return articlesData
 
