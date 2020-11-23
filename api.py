@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from microsoftAcademic import findMicrosoft, scrapeMicrosoft
+from microsoftAcademic import findMicrosoft
 from googleAcademic import findGoogle
 from database import queryDatabase, insertData, insertTest, replaceTest
 from bson import json_util
@@ -20,8 +20,8 @@ def query_by_name(name):
         return queryResult
     else:
         scrapeResults = {
-            'research_gate' : findMicrosoft(name)
-            # 'google' : findGoogle(name)
+            'microsoft_academic' : findMicrosoft(name),
+            'google' : findGoogle(name)
         }
 
         insertedData = insertData(name, scrapeResults)
@@ -80,17 +80,6 @@ def testreplaceendpoint(name,newname):
     except:
         return "Fail"
     
-@app.route('/onepage/<string:name>')
-def query_one_page(name):
-
-
-    scrapeResults = {
-        'research_gate' : findMicrosoft(name)
-    }
-
-    return scrapeResults
-
-
 
 
 if __name__ == "__main__":
