@@ -29,7 +29,7 @@ def findMicrosoft (search_param):
         return "Sin resultados"
     
     #busca el primer nombre de la lista y hace click en su perfil
-    time.sleep(1)
+    time.sleep(2)
     search = driver.find_element_by_class_name("author-card")
     search = search.find_element_by_class_name("header")
     search = search.find_element_by_xpath("//div[@class='name']/a").get_attribute('href')
