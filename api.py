@@ -43,8 +43,8 @@ def query(name):
 def scrape(name):
 
     scrapeResults = {
-        'research_gate' : findMicrosoft(name) 
-        # 'google' : findGoogle(name)
+        'microsoft_academic' : findMicrosoft(name),
+        'google' : findGoogle(name)
     }
 
     insertedData = insertData(name, scrapeResults)
