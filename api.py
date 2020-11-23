@@ -85,7 +85,7 @@ def query_one_page(name):
 
 
     scrapeResults = {
-        'research_gate' : scrapeMicrosoft(name)
+        'research_gate' : findMicrosoft(name)
     }
 
     return scrapeResults

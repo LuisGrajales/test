@@ -39,8 +39,7 @@ def findMicrosoft (search_param):
     
     #busca el primer nombre de la lista y hace click en su perfil
     time.sleep(3)
-    search = driver.find_element_by_class_name("disambiguations")
-    search = search.find_element_by_class_name("author-card")
+    search = driver.find_element_by_class_name("author-card")
     search = search.find_element_by_class_name("header")
     search = search.find_element_by_xpath("//div[@class='name']/a").get_attribute('href')
     print(search)
@@ -48,13 +47,8 @@ def findMicrosoft (search_param):
     time.sleep(2)
     print("entro al perfil")
 
-    pageNumber = driver.find_element_by_class_name("ma-pager").text[-1]
-    pageNumber = int(pageNumber)
-    counter = 0
 
-    while counter < pageNumber:
-        print(counter)
-
+    while True:
         #dentro del perfil consigue la informacion
         # main = driver.find_element_by_class_name("main")
         # results = main.find_element_by_class_name("results")
@@ -83,16 +77,11 @@ def findMicrosoft (search_param):
             # Agregamos el artículo a la lista
             articlesData.append(data)
 
-        counter = counter + 1
-        if counter < pageNumber:
-            driver.find_element_by_xpath("//i[@class='icon-up right au-target']").click()
-            time.sleep(2)
-            print(driver.title)
-        else:
-            print("no hay mas resultados")
-            break
-
-    return driver.page_source
+        try:
+            button = driver.find_element_by_class_name("right")
+            button.click()  
+        except:
+            return articlesData
 
 def scrapeMicrosoft(search_param):
 
