@@ -19,7 +19,7 @@ def insertData(name, data):
         authors.replace_one({ 'full_name' : name }, {
         'full_name' : name,
         'date' : datetime.datetime.now(),
-        'research_gate' : data['research_gate'],
+        'microsoft_academic' : data['microsoft_academic'],
         'google' : data['google']
         }) 
     else:
