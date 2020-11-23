@@ -23,10 +23,10 @@ def findMicrosoft (search_param):
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
     url = 'https://academic.microsoft.com/search?q="{}"'.format(search_param)
     driver.get(url)
-    try:
-        driver.find_element_by_class_name("right")
-    except:
-        return "Sin resultados"
+    # try:
+    #     driver.find_element_by_class_name("right")
+    # except:
+    #     return "Sin resultados"
     
     #busca el primer nombre de la lista y hace click en su perfil
     time.sleep(2)
