@@ -37,7 +37,6 @@ def findGoogle(search_param):
     #Verificar si existen resultados por 5 segundos
     try:
         WebDriverWait(driver, timeout = 30).until(lambda d : d.find_elements_by_class_name("gsc_1usr"))
-        print("se encontraton resultado")
     except:
         return [{ "error" : "No se encontraron resultados" }]
 
@@ -50,7 +49,6 @@ def findGoogle(search_param):
         showMorebutton =  driver.find_element_by_id('gsc_bpf_more')
         #Cargar todos los articulos
         while showMorebutton.is_enabled():
-            print(showMorebutton.is_enabled())
             showMorebutton.click()
             time.sleep(3)
             
@@ -59,7 +57,6 @@ def findGoogle(search_param):
 
     #Esperar a que los articulos se carguen por 10 segundos
     articles = WebDriverWait(driver, timeout = 120).until(lambda d: d.find_elements_by_class_name('gsc_a_tr'))
-    print(len(articles))
 
     #Ciclando articulos
     for article in articles:
@@ -82,5 +79,4 @@ def findGoogle(search_param):
         articlesData.append(data)
 
     return articlesData
-# print(findGoogle("escudero-nahon"))
 
