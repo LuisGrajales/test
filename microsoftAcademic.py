@@ -76,12 +76,11 @@ def findMicrosoft (search_param):
 
             # Agregamos el artículo a la lista
             articlesData.append(data)
-
         try:
-            button = driver.find_element_by_class_name("right")
-            button.click()  
+            button = driver.find_element_by_xpath("//i[@class='icon-up right au-target']").click()
         except:
             return articlesData
+
 
 def scrapeMicrosoft(search_param):
 
