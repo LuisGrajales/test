@@ -23,7 +23,7 @@ def findMicrosoft (search_param):
 	# Navegar hacia el URL deseado con el nombre a buscar ya dentro del URI
     url = 'https://academic.microsoft.com/search?q="{}"'.format(search_param)
     driver.get(url)
-    time.sleep(2)
+    time.sleep(3)
     try:
         driver.find_element_by_class_name("not-found")
         return "Sin resultados"
