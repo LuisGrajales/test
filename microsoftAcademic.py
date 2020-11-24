@@ -29,7 +29,7 @@ def findMicrosoft (search_param):
         return "Sin resultados"
     except:
         pass
-    search = driver.find_element_by_class_name("author-card")
+    search = driver.find_element_by_class_name("author-info")
     search = search.find_element_by_class_name("header")
     search = search.find_element_by_xpath("//div[@class='name']/a").get_attribute('href')
     driver.get(search)
