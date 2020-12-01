@@ -1,0 +1,47 @@
+#contacto{
+    height: 100px;
+    width: 98%;
+    margin-left: 15px;;
+    float: left;
+    box-sizing: border-box;
+}
+.imagenContacto{
+    height: 25px;
+    width: 25px;
+    float: left;
+    box-sizing: border-box;
+}
+#tituloContacto{
+    margin: 0;
+    color: crimson;
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+    text-align: left !important;
+}
+.contenedoresContacto{
+    width: 49%;
+    height: 21px;
+    margin: 5px 0;
+    float: left;
+    box-sizing: border-box;
+}
+.contactos{
+    margin: 3px 5px;
+    cursor: pointer;
+}
+
+#textoFacebook{
+    width: 220px !important;
+}
+#textoInstagram{
+    width: 220px !important;
+}
+#textoContacto{
+    width: 310px !important;
+}
+#textoCorreo{
+    width: 360px !important;
+}
+.contenedoresContacto>a{
+    cursor: default;
+}

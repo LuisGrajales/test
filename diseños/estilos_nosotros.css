@@ -1,0 +1,50 @@
+#valores{
+    width: 100%;
+    height: auto;
+    padding-left: 5%;
+    margin-top: 50px;
+    
+}
+.item{
+    width: 28%;
+    height: auto;
+    display:inline-grid;
+    margin-right: 5%;
+    margin-bottom: 40px;
+}
+.imgValor{
+    width: 70px;
+    height: 70px;
+    margin-left: 87px;
+    margin-top: 10px;
+}
+.nombreValor{
+    margin: 0px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    color: rgb(93, 82, 74);
+    margin-top: 10px;
+    font-size: 20px;
+    cursor: default;
+}
+.descripcionValor{
+    width: 90%;
+    height: auto;
+    text-align: justify;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    color: rgb(93, 82, 74);
+    font-size: 18px;
+    text-align: center;
+    cursor: default;
+    
+    
+}
+.item2{
+    width: 28%;
+    height: auto;
+    display:inline-grid;
+    margin-left: 130px;
+    margin-right: 40px;
+    cursor: default;
+}
